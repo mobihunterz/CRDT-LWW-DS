@@ -8,18 +8,18 @@
 import XCTest
 @testable import CRDT_LWW
 
-class DictNodeTests: XCTestCase {
+class DictNodeTestString: XCTestCase {
     
     func testEmptyDictNoDescription() {
-        XCTAssertEqual(DictNode().description, "")
+        XCTAssertEqual(DictNode<String>().description, "")
     }
     
     func testEmptyDictNoKeysAndValues() {
-        XCTAssertEqual(DictNode().result().count, 0)
+        XCTAssertEqual(DictNode<String>().result().count, 0)
     }
     
     func testDictWithKeyValueInit() {
-        let node = DictNode("name", "ABC")
+        let node = DictNode<String>("name", "ABC")
         let result = node.result()
         
         XCTAssertEqual(result.count, 1)
@@ -30,7 +30,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testAddKeyValuePostInit() {
-        var node = DictNode("name", "Prapti")
+        var node = DictNode<String>("name", "Prapti")
         
         XCTAssertEqual(node.result().count, 1)
         XCTAssertEqual(node["name"], "Prapti")
@@ -48,7 +48,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testRemoveKeyPostInit() {
-        var node = DictNode("name", "Prapti")
+        var node = DictNode<String>("name", "Prapti")
         
         XCTAssertEqual(node.result().count, 1)
         XCTAssertEqual(node["name"], "Prapti")
@@ -59,7 +59,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testRemoveWrongKeyPostInit() {
-        var node = DictNode("name", "Prapti")
+        var node = DictNode<String>("name", "Prapti")
         
         XCTAssertEqual(node.result().count, 1)
         XCTAssertEqual(node["name"], "Prapti")
@@ -71,7 +71,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testUpdateKeyPostInit() {
-        var node = DictNode("name", "Prapti")
+        var node = DictNode<String>("name", "Prapti")
         
         XCTAssertEqual(node.result().count, 1)
         XCTAssertEqual(node["name"], "Prapti")
@@ -82,7 +82,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testAddUpdateKeyPostInit() {
-        var node = DictNode("name", "Prapti")
+        var node = DictNode<String>("name", "Prapti")
         
         XCTAssertEqual(node.result().count, 1)
         XCTAssertEqual(node["name"], "Prapti")
@@ -99,7 +99,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testMultiOpsPostInit() {
-        var node = DictNode("name", "Prapti")
+        var node = DictNode<String>("name", "Prapti")
         
         XCTAssertEqual(node.result().count, 1)
         XCTAssertEqual(node["name"], "Prapti")
@@ -131,7 +131,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testMultiOpsRemovePostInit() {
-        var node = DictNode("name", "Prapti")
+        var node = DictNode<String>("name", "Prapti")
         
         XCTAssertEqual(node.result().count, 1)
         XCTAssertEqual(node["name"], "Prapti")
@@ -148,7 +148,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testReUpdatePostInit() {
-        var node = DictNode("name", "Prapti")
+        var node = DictNode<String>("name", "Prapti")
         
         XCTAssertEqual(node.result().count, 1)
         XCTAssertEqual(node["name"], "Prapti")
@@ -181,11 +181,11 @@ class DictNodeTests: XCTestCase {
     }
     
     func testMergePostInit() {
-        let node1 = DictNode("name", "Prapti")
+        let node1 = DictNode<String>("name", "Prapti")
         XCTAssertEqual(node1.result().count, 1)
         XCTAssertEqual(node1["name"], "Prapti")
         
-        let node2 = DictNode("office", "Anand")
+        let node2 = DictNode<String>("office", "Anand")
         XCTAssertEqual(node2.result().count, 1)
         XCTAssertEqual(node2["office"], "Anand")
         
@@ -196,7 +196,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testAddAndMergePostInit() {
-        var node1 = DictNode("name", "Prapti")
+        var node1 = DictNode<String>("name", "Prapti")
         XCTAssertEqual(node1.result().count, 1)
         XCTAssertEqual(node1["name"], "Prapti")
         
@@ -205,7 +205,7 @@ class DictNodeTests: XCTestCase {
         XCTAssertEqual(node1["name"], "Prapti")
         XCTAssertEqual(node1["gender"], "female")
         
-        var node2 = DictNode("office", "Anand")
+        var node2 = DictNode<String>("office", "Anand")
         XCTAssertEqual(node2.result().count, 1)
         XCTAssertEqual(node2["office"], "Anand")
         
@@ -223,7 +223,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testAddUpdateRemoveAndMergePostInit() {
-        var node1 = DictNode("name", "Prapti")
+        var node1 = DictNode<String>("name", "Prapti")
         XCTAssertEqual(node1.result().count, 1)
         XCTAssertEqual(node1["name"], "Prapti")
         
@@ -232,7 +232,7 @@ class DictNodeTests: XCTestCase {
         XCTAssertEqual(node1["name"], "Prapti")
         XCTAssertEqual(node1["gender"], "female")
         
-        var node2 = DictNode("office", "Anand")
+        var node2 = DictNode<String>("office", "Anand")
         XCTAssertEqual(node2.result().count, 1)
         XCTAssertEqual(node2["office"], "Anand")
         
@@ -280,7 +280,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testMergeUpdatePostAdd() {
-        var node1 = DictNode("name", "Prapti")
+        var node1 = DictNode<String>("name", "Prapti")
         XCTAssertEqual(node1.result().count, 1)
         XCTAssertEqual(node1["name"], "Prapti")
         
@@ -289,7 +289,7 @@ class DictNodeTests: XCTestCase {
         XCTAssertEqual(node1["name"], "Prapti")
         XCTAssertEqual(node1["gender"], "female")
         
-        var node2 = DictNode("office", "Anand")
+        var node2 = DictNode<String>("office", "Anand")
         XCTAssertEqual(node2.result().count, 1)
         XCTAssertEqual(node2["office"], "Anand")
         
@@ -306,7 +306,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testMergeUpdateRemovePostAdd() {
-        var node1 = DictNode("name", "Prapti")
+        var node1 = DictNode<String>("name", "Prapti")
         XCTAssertEqual(node1.result().count, 1)
         XCTAssertEqual(node1["name"], "Prapti")
         
@@ -323,7 +323,7 @@ class DictNodeTests: XCTestCase {
         XCTAssertEqual(node1["gender"], "female")
         XCTAssertEqual(node1["job"], "ios")
         
-        var node2 = DictNode("office", "Anand")
+        var node2 = DictNode<String>("office", "Anand")
         XCTAssertEqual(node2.result().count, 1)
         XCTAssertEqual(node2["office"], "Anand")
         
@@ -345,7 +345,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func testMergeMultiplePostAdd() {
-        var node1 = DictNode("name", "Prapti")
+        var node1 = DictNode<String>("name", "Prapti")
         XCTAssertEqual(node1.result().count, 1)
         XCTAssertEqual(node1["name"], "Prapti")
         
@@ -362,7 +362,7 @@ class DictNodeTests: XCTestCase {
         XCTAssertEqual(node1["name"], "Sivana")
         XCTAssertEqual(node1["gender"], "female")
         
-        var node2 = DictNode("office", "Anand")
+        var node2 = DictNode<String>("office", "Anand")
         XCTAssertEqual(node2.result().count, 1)
         XCTAssertEqual(node2["office"], "Anand")
         
@@ -377,7 +377,7 @@ class DictNodeTests: XCTestCase {
         XCTAssertEqual(node2["gender"], "male")
         XCTAssertEqual(node2["job"], "android")
         
-        let node3 = DictNode("village", "Badhipura")
+        let node3 = DictNode<String>("village", "Badhipura")
         XCTAssertEqual(node3.result().count, 1)
         XCTAssertEqual(node3["village"], "Badhipura")
         
@@ -391,7 +391,7 @@ class DictNodeTests: XCTestCase {
     }
     
     func test2WayMergeRemovePostAdd() {
-        var node1 = DictNode("name", "Prapti")
+        var node1 = DictNode<String>("name", "Prapti")
         XCTAssertEqual(node1.result().count, 1)
         XCTAssertEqual(node1["name"], "Prapti")
         
@@ -401,7 +401,7 @@ class DictNodeTests: XCTestCase {
         XCTAssertEqual(node1.result().count, 1)
         XCTAssertEqual(node1["job"], "ios")
         
-        var node2 = DictNode("office", "Anand")
+        var node2 = DictNode<String>("office", "Anand")
         XCTAssertEqual(node2.result().count, 1)
         XCTAssertEqual(node2["office"], "Anand")
         
