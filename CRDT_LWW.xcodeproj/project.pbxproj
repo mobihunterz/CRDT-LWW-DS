@@ -15,7 +15,7 @@
 		6B46A9A72629AF2A009FCD71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B46A9A52629AF2A009FCD71 /* LaunchScreen.storyboard */; };
 		6B46A9B22629AF2A009FCD71 /* CRDT_LWWTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B46A9B12629AF2A009FCD71 /* CRDT_LWWTests.swift */; };
 		6B46A9D02629AF2C009FCD71 /* DictNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B46A9CF2629AF2C009FCD71 /* DictNode.swift */; };
-		6B46A9DD2629AF2C009FCD71 /* DictNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B46A9DC2629AF2C009FCD71 /* DictNodeTests.swift */; };
+		6B46A9DD2629AF2C009FCD71 /* DictNodeTestString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B46A9DC2629AF2C009FCD71 /* DictNodeTestString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 		6B46A9BC2629AF2A009FCD71 /* CRDT_LWWUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRDT_LWWUITests.swift; sourceTree = "<group>"; };
 		6B46A9BE2629AF2A009FCD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B46A9CF2629AF2C009FCD71 /* DictNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictNode.swift; sourceTree = "<group>"; };
-		6B46A9DC2629AF2C009FCD71 /* DictNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictNodeTests.swift; sourceTree = "<group>"; };
+		6B46A9DC2629AF2C009FCD71 /* DictNodeTestString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictNodeTestString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				6B46A9B12629AF2A009FCD71 /* CRDT_LWWTests.swift */,
-				6B46A9DC2629AF2C009FCD71 /* DictNodeTests.swift */,
+				6B46A9DC2629AF2C009FCD71 /* DictNodeTestString.swift */,
 				6B46A9B32629AF2A009FCD71 /* Info.plist */,
 			);
 			path = CRDT_LWWTests;
@@ -229,7 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B46A9B22629AF2A009FCD71 /* CRDT_LWWTests.swift in Sources */,
-				6B46A9DD2629AF2C009FCD71 /* DictNodeTests.swift in Sources */,
+				6B46A9DD2629AF2C009FCD71 /* DictNodeTestString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
